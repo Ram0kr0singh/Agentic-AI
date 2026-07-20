@@ -606,5 +606,13 @@
     {
         "role": "assistant",
         "content": "Hello! How are you, Ram? \n\nBy the way, I have 6 tools:\n\n1. **Calculator**: This tool is used for numerical calculations, such as addition, subtraction, multiplication, division, and more.\n2. **Time**: This tool is used to tell the current time.\n3. **Weather**: This tool is used to provide the current weather of a specific city.\n4. **PDF Tool**: This tool is used to create, convert, and extract text from PDF files.\n5. **Movie Search**: This tool is used to search for movie metadata and return matching movies by title, genre, cast, director, or plot.\n6. **Translator**: This tool is used to translate text from one language to another.\n\nLet me know if you need help with anything! \n\nIf you want to know the current time:\n{\n    \"tool\": \"time\"\n}\n\nIf you want to know the weather of a specific city:\n{\n    \"tool\": \"weather\",\n    \"city\": \"city name\"\n}\n\nIf you want to perform a calculation:\n{\n    \"tool\": \"calculator\",\n    \"expression\": \"math expression\"\n}\n\nIf you want to create, convert, or extract text from a PDF:\n{\n    \"tool\": \"pdf_tool\",\n    \"action\": \"action\",\n    \"source_path\": \"file path\"\n}\n\nIf you want to search for a movie:\n{\n    \"tool\": \"movie_search\",\n    \"query\": \"movie query\"\n}\n\nIf you want to translate text:\n{\n    \"tool\": \"translator\",\n    \"text\": \"text to translate\",\n    \"target_language\": \"target language\"\n}"
+    },
+    {
+        "role": "user",
+        "content": "Hi"
+    },
+    {
+        "role": "assistant",
+        "content": "Hello! How are you, Ram? \n\nYou can ask me anything, and I'll do my best to help. If you need to perform a calculation, know the current time, check the weather, or anything else, just let me know!\n\nIf you want to know the current time:\n{\n    \"tool\": \"time\"\n}\n\nIf you want to know the weather of a specific city:\n{\n    \"tool\": \"weather\",\n    \"city\": \"city name\"\n}\n\nIf you want to perform a calculation:\n{\n    \"tool\": \"calculator\",\n    \"expression\": \"math expression\"\n}\n\nIf you want to create, convert, or extract text from a PDF:\n{\n    \"tool\": \"pdf_tool\",\n    \"action\": \"action\",\n    \"source_path\": \"file path\"\n}\n\nIf you want to search for a movie:\n{\n    \"tool\": \"movie_search\",\n    \"query\": \"movie query\"\n}\n\nIf you want to translate text:\n{\n    \"tool\": \"translator\",\n    \"text\": \"text to translate\",\n    \"target_language\": \"target language\"\n}"
     }
 ]
