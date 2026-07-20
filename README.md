@@ -20,4 +20,11 @@ A simple AI agent project with a Streamlit frontend that uses OpenAI and utility
 ## Notes
 
 - `vercel.json` routes all traffic to `frontend.py`.
-- Keep `Config.py` updated with your OpenAI API credentials if using the service.
+- Set `OPENAI_API_KEY` in your environment before running the app.
+- For local development, use:
+  - Windows PowerShell:
+    `setx OPENAI_API_KEY "your_api_key_here"`
+  - macOS/Linux:
+    `export OPENAI_API_KEY="your_api_key_here"`
+- For Vercel, add `OPENAI_API_KEY` to the project Environment Variables in the Vercel dashboard.
+- You can optionally override `OPENAI_BASE_URL` and `OPENAI_MODEL_NAME` via environment variables.

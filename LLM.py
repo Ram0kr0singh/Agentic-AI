@@ -1,17 +1,23 @@
 from openai import OpenAI
-from Config import API_KEY,BASE_URL,MODEL_NAME
+from Config import API_KEY, BASE_URL, MODEL_NAME
 
-client =OpenAI(
-    api_key = API_KEY,
-    base_url = BASE_URL,
+if not API_KEY:
+    raise RuntimeError(
+        "OPENAI_API_KEY is not set.\n"
+        "Set the environment variable OPENAI_API_KEY before running the app."
+    )
+
+client = OpenAI(
+    api_key=API_KEY,
+    base_url=BASE_URL,
 )
+
 def chat(messages: list) -> str:
     response = client.chat.completions.create(
         model=MODEL_NAME,
         messages=messages,
-        temperature=0 
+        temperature=0
     )
-    
     return response.choices[0].message.content.strip()
 
 if __name__ == "__main__":
