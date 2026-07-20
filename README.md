@@ -21,6 +21,10 @@ A simple AI agent project with a Streamlit frontend that uses OpenAI and utility
 
 - `vercel.json` routes all traffic to `frontend.py`.
 - Set `OPENAI_API_KEY` in your environment before running the app.
+- Optionally create a `.env` file in the project root with:
+  ```
+  OPENAI_API_KEY=your_api_key_here
+  ```
 - For local development, use:
   - Windows PowerShell:
     `setx OPENAI_API_KEY "your_api_key_here"`
