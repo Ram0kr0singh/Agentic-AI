@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import random
 import shutil
 import uuid
 from pathlib import Path
@@ -72,6 +73,40 @@ def _read_text_file(path: Path) -> str:
             continue
 
     return path.read_text(encoding="utf-8", errors="replace")
+
+
+def _generate_random_essay(word_count: int = 100) -> str:
+    words = [
+        "adventure", "future", "technology", "growth", "nature", "learning",
+        "creativity", "community", "journey", "innovation", "culture", "values",
+        "science", "dream", "challenge", "support", "health", "change",
+        "history", "success", "knowledge", "art", "vision", "society",
+        "energy", "space", "education", "respect", "discovery", "freedom",
+        "imagination", "leadership", "harmony", "improvement", "opportunity",
+        "responsibility", "balance", "future", "strength", "strategy", "respect",
+        "growth", "advice", "trust", "memory", "development", "passion",
+        "environment", "motivation", "wisdom", "technology", "connection",
+        "progress", "kindness", "innovation", "courage", "success", "purpose",
+        "community", "potential", "strategy", "discovery", "reflection",
+        "achievement", "optimism", "communication", "friendship", "creativity",
+        "leadership", "imagination", "collaboration", "excellence", "growth",
+        "responsibility", "resource", "respect", "future", "design", "humility",
+        "effort", "confidence", "curiosity", "quality", "mission", "change",
+        "possibility", "innovation", "future", "inspiration", "achievement",
+        "purpose", "understanding", "opportunity", "dreams", "support",
+        "civilization", "expression", "potential", "learning", "unity",
+        "awareness", "resilience", "motivation", "leadership", "success"
+    ]
+
+    essay_words = []
+    for i in range(word_count):
+        essay_words.append(random.choice(words))
+        if (i + 1) % 12 == 0:
+            essay_words.append("\n\n")
+
+    essay = " ".join(w for w in essay_words if w is not None)
+    essay = essay.replace(" \n\n ", "\n\n")
+    return essay.strip()
 
 
 def save_uploaded_file(filename: str, file_bytes: bytes) -> str:
@@ -229,6 +264,18 @@ def execute(arguments: dict[str, Any]) -> dict[str, Any]:
             "source_path": None,
             "output_path": output_path,
             "download_name": Path(output_path).name,
+        }
+
+    if action == "generate_random_essay":
+        essay_text = _generate_random_essay(word_count=100)
+        output_path = create_pdf_from_text(text=essay_text, title=title, output_name=output_name)
+        return {
+            "status": "success",
+            "action": action,
+            "source_path": None,
+            "output_path": output_path,
+            "download_name": Path(output_path).name,
+            "essay_text": essay_text,
         }
 
     if action == "convert_to_pdf":
